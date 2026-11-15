@@ -1,0 +1,684 @@
+2026-11-15 18:01:19 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:01:19 - bot - INFO - Запуск чат-бота
+2026-11-15 18:01:19 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:01:19 - rag.vector_store - INFO - Файла с векторами нет - строим заново
+2026-11-15 18:01:19 - rag.corpus - INFO - Загружен документ: exam_day_and_health.txt (938 симв.)
+2026-11-15 18:01:19 - rag.corpus - INFO - Всего документов: 1
+2026-11-15 18:01:19 - rag.corpus - INFO - Получилось чанков: 8
+2026-11-15 18:01:19 - rag.vector_store - INFO - Строим эмбеддинги для 8 чанков...
+2026-11-15 18:01:19 - rag.embedder - INFO - Загрузка модели эмбеддингов: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:01:19 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-11-15 18:01:19 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:01:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:01:20 - filelock - DEBUG - Attempting to acquire lock 4751681072 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/c02d0ed3297a8a1a1c5e8ba6488447ede321dc51.lock
+2026-11-15 18:01:20 - filelock - DEBUG - Lock 4751681072 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/c02d0ed3297a8a1a1c5e8ba6488447ede321dc51.lock
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 368
+2026-11-15 18:01:20 - filelock - DEBUG - Attempting to release lock 4751681072 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/c02d0ed3297a8a1a1c5e8ba6488447ede321dc51.lock
+2026-11-15 18:01:20 - filelock - DEBUG - Lock 4751681072 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/c02d0ed3297a8a1a1c5e8ba6488447ede321dc51.lock
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 404 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 0
+2026-11-15 18:01:20 - filelock - DEBUG - Attempting to acquire lock 4759664928 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/22df62c2494960f5e019d9ef76426062dfd2dfad.lock
+2026-11-15 18:01:20 - filelock - DEBUG - Lock 4759664928 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/22df62c2494960f5e019d9ef76426062dfd2dfad.lock
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 None
+2026-11-15 18:01:20 - filelock - DEBUG - Attempting to release lock 4759664928 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/22df62c2494960f5e019d9ef76426062dfd2dfad.lock
+2026-11-15 18:01:20 - filelock - DEBUG - Lock 4759664928 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/22df62c2494960f5e019d9ef76426062dfd2dfad.lock
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-11-15 18:01:20 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 0
+2026-11-15 18:01:20 - filelock - DEBUG - Attempting to acquire lock 4756499072 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/986da3d0a2f6132d542794e7f8df026e232b608f.lock
+2026-11-15 18:01:20 - filelock - DEBUG - Lock 4756499072 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/986da3d0a2f6132d542794e7f8df026e232b608f.lock
+2026-11-15 18:01:21 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 56
+2026-11-15 18:01:21 - filelock - DEBUG - Attempting to release lock 4756499072 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/986da3d0a2f6132d542794e7f8df026e232b608f.lock
+2026-11-15 18:01:21 - filelock - DEBUG - Lock 4756499072 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/986da3d0a2f6132d542794e7f8df026e232b608f.lock
+2026-11-15 18:01:21 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-11-15 18:01:21 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 0
+2026-11-15 18:01:21 - filelock - DEBUG - Attempting to acquire lock 4759233184 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/5542b6d6f330795f43118a7d7ebdbef395008d20.lock
+2026-11-15 18:01:21 - filelock - DEBUG - Lock 4759233184 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/5542b6d6f330795f43118a7d7ebdbef395008d20.lock
+2026-11-15 18:01:21 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 707
+2026-11-15 18:01:21 - filelock - DEBUG - Attempting to release lock 4759233184 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/5542b6d6f330795f43118a7d7ebdbef395008d20.lock
+2026-11-15 18:01:21 - filelock - DEBUG - Lock 4759233184 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/5542b6d6f330795f43118a7d7ebdbef395008d20.lock
+2026-11-15 18:01:21 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/model.safetensors HTTP/1.1" 302 0
+2026-11-15 18:01:21 - filelock - DEBUG - Attempting to acquire lock 4766181008 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/44dbeacf5eae4e38e51ea44d19b8e7c40b350e24546390c402a798cf6d363150.lock
+2026-11-15 18:01:21 - filelock - DEBUG - Lock 4766181008 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/44dbeacf5eae4e38e51ea44d19b8e7c40b350e24546390c402a798cf6d363150.lock
+2026-11-15 18:01:22 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/xet-read-token/ca4178c12dd679831bc7b31c63408f1f9ade189b HTTP/1.1" 200 483
+2026-11-15 18:01:34 - filelock - DEBUG - Attempting to release lock 4766181008 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/44dbeacf5eae4e38e51ea44d19b8e7c40b350e24546390c402a798cf6d363150.lock
+2026-11-15 18:01:34 - filelock - DEBUG - Lock 4766181008 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/44dbeacf5eae4e38e51ea44d19b8e7c40b350e24546390c402a798cf6d363150.lock
+2026-11-15 18:01:34 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-11-15 18:01:34 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 0
+2026-11-15 18:01:34 - filelock - DEBUG - Attempting to acquire lock 4853494128 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/8bea2d10abcb0cb76724ba7edb636cf4094761c1.lock
+2026-11-15 18:01:34 - filelock - DEBUG - Lock 4853494128 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/8bea2d10abcb0cb76724ba7edb636cf4094761c1.lock
+2026-11-15 18:01:34 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 None
+2026-11-15 18:01:34 - filelock - DEBUG - Attempting to release lock 4853494128 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/8bea2d10abcb0cb76724ba7edb636cf4094761c1.lock
+2026-11-15 18:01:34 - filelock - DEBUG - Lock 4853494128 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/8bea2d10abcb0cb76724ba7edb636cf4094761c1.lock
+2026-11-15 18:01:34 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/vocab.txt HTTP/1.1" 307 0
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/vocab.txt HTTP/1.1" 200 0
+2026-11-15 18:01:35 - filelock - DEBUG - Attempting to acquire lock 4854419760 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/211012a925fc51581997b6d3ef047bcda9a842f4.lock
+2026-11-15 18:01:35 - filelock - DEBUG - Lock 4854419760 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/211012a925fc51581997b6d3ef047bcda9a842f4.lock
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/vocab.txt HTTP/1.1" 200 None
+2026-11-15 18:01:35 - filelock - DEBUG - Attempting to release lock 4854419760 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/211012a925fc51581997b6d3ef047bcda9a842f4.lock
+2026-11-15 18:01:35 - filelock - DEBUG - Lock 4854419760 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/211012a925fc51581997b6d3ef047bcda9a842f4.lock
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer.json HTTP/1.1" 307 0
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer.json HTTP/1.1" 200 0
+2026-11-15 18:01:35 - filelock - DEBUG - Attempting to acquire lock 4854423216 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/92b07d6a81ef7bae574dc3e77baafca5376b2b12.lock
+2026-11-15 18:01:35 - filelock - DEBUG - Lock 4854423216 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/92b07d6a81ef7bae574dc3e77baafca5376b2b12.lock
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer.json HTTP/1.1" 200 None
+2026-11-15 18:01:35 - filelock - DEBUG - Attempting to release lock 4854423216 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/92b07d6a81ef7bae574dc3e77baafca5376b2b12.lock
+2026-11-15 18:01:35 - filelock - DEBUG - Lock 4854423216 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/92b07d6a81ef7bae574dc3e77baafca5376b2b12.lock
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2026-11-15 18:01:35 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/special_tokens_map.json HTTP/1.1" 307 0
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/special_tokens_map.json HTTP/1.1" 200 0
+2026-11-15 18:01:36 - filelock - DEBUG - Attempting to acquire lock 4854424656 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/ba5e3e474dd99473e6fd1bec11f3c34d406c6760.lock
+2026-11-15 18:01:36 - filelock - DEBUG - Lock 4854424656 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/ba5e3e474dd99473e6fd1bec11f3c34d406c6760.lock
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/special_tokens_map.json HTTP/1.1" 200 732
+2026-11-15 18:01:36 - filelock - DEBUG - Attempting to release lock 4854424656 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/ba5e3e474dd99473e6fd1bec11f3c34d406c6760.lock
+2026-11-15 18:01:36 - filelock - DEBUG - Lock 4854424656 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/ba5e3e474dd99473e6fd1bec11f3c34d406c6760.lock
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/revision/main HTTP/1.1" 200 None
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/ca4178c12dd679831bc7b31c63408f1f9ade189b/1_Pooling/config.json HTTP/1.1" 307 0
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-11-15 18:01:36 - filelock - DEBUG - Attempting to acquire lock 4766185184 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/7d84bd06ea09b424f1116c756cc49ea1dc1d9e88.lock
+2026-11-15 18:01:36 - filelock - DEBUG - Lock 4766185184 acquired on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/7d84bd06ea09b424f1116c756cc49ea1dc1d9e88.lock
+2026-11-15 18:01:36 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/1_Pooling%2Fconfig.json HTTP/1.1" 200 196
+2026-11-15 18:01:36 - filelock - DEBUG - Attempting to release lock 4766185184 on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/7d84bd06ea09b424f1116c756cc49ea1dc1d9e88.lock
+2026-11-15 18:01:36 - filelock - DEBUG - Lock 4766185184 released on /Users/admin/.cache/huggingface/hub/.locks/models--sergeyzh--rubert-tiny-sts-v2/7d84bd06ea09b424f1116c756cc49ea1dc1d9e88.lock
+2026-11-15 18:01:37 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2 HTTP/1.1" 200 None
+2026-11-15 18:01:37 - rag.embedder - INFO - Модель загружена, размерность: 312
+2026-11-15 18:01:38 - rag.embedder - DEBUG - Посчитано эмбеддингов: 8
+2026-11-15 18:01:38 - rag.vector_store - INFO - Построено векторов: 8
+2026-11-15 18:01:38 - rag.vector_store - INFO - Векторы сохранены в vectors.json (8 шт.)
+2026-11-15 18:01:38 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:01:38 - bot - ERROR - Некорректный ввод: invalid literal for int() with base 10: ''
+2026-11-15 18:01:38 - bot - INFO - Сообщений в истории: 0
+2026-11-15 18:01:45 - bot - INFO - Запрос: привет
+2026-11-15 18:01:45 - rag.vector_store - DEBUG - Поиск 'привет': найдено 2 чанков (порог=0.30)
+2026-11-15 18:01:45 - bot - DEBUG - Отправка в GigaChat, сообщений: 2
+2026-11-15 18:01:45 - gigachat.api.auth - WARNING - Invalid credentials format. Please use only base64 credentials (Authorization data, not client secret!)
+2026-11-15 18:01:45 - bot - ERROR - Ошибка GigaChat: 'ascii' codec can't encode characters in position 6-8: ordinal not in range(128)
+Traceback (most recent call last):
+  File "/Users/admin/chatwithRAG/bot.py", line 163, in _run_chat
+    answer = self._ask_gigachat_with_rag(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/bot.py", line 142, in _ask_gigachat_with_rag
+    response = client.chat(Chat(messages=messages))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/resources/chat.py", line 46, in __call__
+    return self._base_client._chat(payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/retry.py", line 53, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/authentication.py", line 76, in wrapper
+    auth_client._update_token()
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/client.py", line 480, in _update_token
+    self._access_token = auth.auth_sync(
+                         ^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/auth.py", line 63, in auth_sync
+    response = client.request(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 812, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 367, in build_request
+    headers = self._merge_headers(headers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 430, in _merge_headers
+    merged_headers.update(headers)
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 275, in update
+    headers = Headers(headers)
+              ^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 156, in __init__
+    bytes_value = _normalize_header_value(v, encoding)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 82, in _normalize_header_value
+    return value.encode(encoding or "ascii")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-8: ordinal not in range(128)
+2026-11-15 18:01:51 - bot - INFO - Запрос: привет
+2026-11-15 18:01:51 - rag.vector_store - DEBUG - Поиск 'привет': найдено 2 чанков (порог=0.30)
+2026-11-15 18:01:51 - bot - DEBUG - Отправка в GigaChat, сообщений: 2
+2026-11-15 18:01:51 - gigachat.api.auth - WARNING - Invalid credentials format. Please use only base64 credentials (Authorization data, not client secret!)
+2026-11-15 18:01:51 - bot - ERROR - Ошибка GigaChat: 'ascii' codec can't encode characters in position 6-8: ordinal not in range(128)
+Traceback (most recent call last):
+  File "/Users/admin/chatwithRAG/bot.py", line 163, in _run_chat
+    answer = self._ask_gigachat_with_rag(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/bot.py", line 142, in _ask_gigachat_with_rag
+    response = client.chat(Chat(messages=messages))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/resources/chat.py", line 46, in __call__
+    return self._base_client._chat(payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/retry.py", line 53, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/authentication.py", line 76, in wrapper
+    auth_client._update_token()
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/client.py", line 480, in _update_token
+    self._access_token = auth.auth_sync(
+                         ^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/auth.py", line 63, in auth_sync
+    response = client.request(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 812, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 367, in build_request
+    headers = self._merge_headers(headers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_client.py", line 430, in _merge_headers
+    merged_headers.update(headers)
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 275, in update
+    headers = Headers(headers)
+              ^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 156, in __init__
+    bytes_value = _normalize_header_value(v, encoding)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/httpx/_models.py", line 82, in _normalize_header_value
+    return value.encode(encoding or "ascii")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-8: ordinal not in range(128)
+2026-11-15 18:05:31 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:05:31 - bot - INFO - Запуск чат-бота
+2026-11-15 18:05:31 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:05:31 - rag.vector_store - INFO - Векторы загружены из vectors.json (8 шт.)
+2026-11-15 18:05:31 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:05:47 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:05:47 - bot - INFO - Запуск чат-бота
+2026-11-15 18:05:47 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:05:47 - rag.vector_store - INFO - Векторы загружены из vectors.json (8 шт.)
+2026-11-15 18:05:47 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:06:10 - bot - ERROR - Некорректный ввод: invalid literal for int() with base 10: 'привет'
+2026-11-15 18:06:10 - bot - INFO - Сообщений в истории: 0
+2026-11-15 18:06:22 - bot - INFO - Запрос: привет
+2026-11-15 18:06:22 - rag.embedder - INFO - Загрузка модели эмбеддингов: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:06:22 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-11-15 18:06:22 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:06:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 404 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-11-15 18:06:23 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 0
+2026-11-15 18:06:24 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-11-15 18:06:24 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 0
+2026-11-15 18:06:24 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-11-15 18:06:24 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 0
+2026-11-15 18:06:25 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/revision/main HTTP/1.1" 200 None
+2026-11-15 18:06:25 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2 HTTP/1.1" 200 None
+2026-11-15 18:06:25 - rag.embedder - INFO - Модель загружена, размерность: 312
+2026-11-15 18:06:27 - rag.vector_store - DEBUG - Поиск 'привет': найдено 2 чанков (порог=0.30)
+2026-11-15 18:06:27 - bot - DEBUG - Отправка в GigaChat, сообщений: 2
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11e50aae0>
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x11e4e2250> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11e50aa20>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:06:27 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:06:27 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:06:27 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11e50bf50>
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x11e4e2cd0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11e50be60>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:06:27 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755187632_345091efa19218011c9399aa43104c68_ei36jmw9tqb7khf8; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'7e5ae306-b995-47b1-9323-6ba9eace46be'), (b'x-session-id', b'882bcd8a-82d7-42cb-9fec-97ab61a0a9cb'), (b'X-SP-CRID', b'6702319383:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:06:27 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:06:27 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:06:27 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:06:27 - bot - ERROR - Ошибка GigaChat: 404 https://api.giga.chat/v1/chat/completions: '{"status":404,"message":"No such model","error_details":{"http_status":404,"user_message":"No such model"}}\n', Headers({'server': 'nginx', 'date': 'Sun, 15 Nov 2026 15:06:27 GMT', 'content-type': 'application/json; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'keep-alive': 'timeout=15', 'vary': 'Accept-Encoding', 'set-cookie': 'spid=1794755187632_345091efa19218011c9399aa43104c68_ei36jmw9tqb7khf8; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://gigachat.sberdevices.ru', 'x-request-id': '7e5ae306-b995-47b1-9323-6ba9eace46be', 'x-session-id': '882bcd8a-82d7-42cb-9fec-97ab61a0a9cb', 'x-sp-crid': '6702319383:1', 'content-encoding': 'gzip'})
+Traceback (most recent call last):
+  File "/Users/admin/chatwithRAG/bot.py", line 163, in _run_chat
+    answer = self._ask_gigachat_with_rag(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/bot.py", line 142, in _ask_gigachat_with_rag
+    response = client.chat(Chat(messages=messages))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/resources/chat.py", line 46, in __call__
+    return self._base_client._chat(payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/retry.py", line 53, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/authentication.py", line 77, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/client.py", line 607, in _chat
+    return chat.chat_sync(self._client, chat=chat_data, access_token=self.token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/chat.py", line 57, in chat_sync
+    return execute_request_sync(client, kwargs, ChatCompletion)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/utils.py", line 298, in execute_request_sync
+    return build_response(response, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/utils.py", line 292, in build_response
+    _raise_for_status(response.url, response.status_code, response.content, response.headers)
+  File "/Users/admin/chatwithRAG/.venv/lib/python3.12/site-packages/gigachat/api/utils.py", line 255, in _raise_for_status
+    raise NotFoundError(url, status_code, content, headers)
+gigachat.exceptions.NotFoundError: 404 https://api.giga.chat/v1/chat/completions: '{"status":404,"message":"No such model","error_details":{"http_status":404,"user_message":"No such model"}}\n', Headers({'server': 'nginx', 'date': 'Sun, 15 Nov 2026 15:06:27 GMT', 'content-type': 'application/json; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'keep-alive': 'timeout=15', 'vary': 'Accept-Encoding', 'set-cookie': 'spid=1794755187632_345091efa19218011c9399aa43104c68_ei36jmw9tqb7khf8; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://gigachat.sberdevices.ru', 'x-request-id': '7e5ae306-b995-47b1-9323-6ba9eace46be', 'x-session-id': '882bcd8a-82d7-42cb-9fec-97ab61a0a9cb', 'x-sp-crid': '6702319383:1', 'content-encoding': 'gzip'})
+2026-11-15 18:08:01 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:08:01 - bot - INFO - Запуск чат-бота
+2026-11-15 18:08:01 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:08:01 - rag.vector_store - INFO - Векторы загружены из vectors.json (8 шт.)
+2026-11-15 18:08:01 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:08:32 - bot - INFO - Расчёт плана: тем=5, дней=2, часов в день=1.0, тем в день=5
+2026-11-15 18:08:32 - bot - INFO - Сообщений в истории: 0
+2026-11-15 18:08:51 - bot - INFO - Запрос: мне нужно подготовиться к экзамену
+2026-11-15 18:08:51 - rag.embedder - INFO - Загрузка модели эмбеддингов: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:08:51 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-11-15 18:08:51 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:08:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 404 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-11-15 18:08:52 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 0
+2026-11-15 18:08:53 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-11-15 18:08:53 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 0
+2026-11-15 18:08:53 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-11-15 18:08:53 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 0
+2026-11-15 18:08:53 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/revision/main HTTP/1.1" 200 None
+2026-11-15 18:08:54 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2 HTTP/1.1" 200 None
+2026-11-15 18:08:54 - rag.embedder - INFO - Модель загружена, размерность: 312
+2026-11-15 18:08:55 - rag.vector_store - DEBUG - Поиск 'мне нужно подготовиться к экзамену': найдено 2 чанков (порог=0.30)
+2026-11-15 18:08:55 - bot - DEBUG - Отправка в GigaChat, сообщений: 2
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12050aa80>
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e22d0> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11fcfc5c0>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:08:55 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:08:55 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:08:55 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12050bf20>
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e2d50> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11ee42a20>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:08:55 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755335346_c888d31e2663551d6d8efd20dea17720_q3fknimv2l0mcxtt; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'17721eb9-e5a6-4483-b1e8-10efc5a1f0fa'), (b'x-session-id', b'ade7ff35-d085-4801-99ef-ba1017c75187'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'3564906581:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:08:55 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:08:55 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:08:55 - bot - INFO - Ответ GigaChat получен (длина: 299 симв.)
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:08:55 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:08:55 - bot - INFO - История сохранена (2 сообщений)
+2026-11-15 18:09:19 - bot - INFO - Запрос: что еще нужно делать
+2026-11-15 18:09:19 - rag.vector_store - DEBUG - Поиск 'что еще нужно делать': найдено 2 чанков (порог=0.30)
+2026-11-15 18:09:19 - bot - DEBUG - Отправка в GigaChat, сообщений: 4
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120531700>
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e3650> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120531610>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:09:19 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:09:19 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:09:19 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120532de0>
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e34d0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:09:19 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120532cf0>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:09:19 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:20 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:09:20 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755359565_986a9be2e32147eb27ccd1643c7fc01a_wxk5qsois4rp9mlt; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'cdba064a-122c-404c-ade5-cc31da986f98'), (b'x-session-id', b'ba1c0e68-84ab-4608-8fbc-623503adb800'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'6636975399:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:09:20 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:09:20 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:09:20 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:09:20 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:09:20 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:09:20 - bot - INFO - Ответ GigaChat получен (длина: 254 симв.)
+2026-11-15 18:09:20 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:09:20 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:09:20 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:09:20 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:09:20 - bot - INFO - История сохранена (4 сообщений)
+2026-11-15 18:09:51 - bot - INFO - Запрос: какие темы мне нужно повоторить
+2026-11-15 18:09:51 - rag.vector_store - DEBUG - Поиск 'какие темы мне нужно повоторить': найдено 2 чанков (порог=0.30)
+2026-11-15 18:09:51 - bot - DEBUG - Отправка в GigaChat, сообщений: 6
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12050a4e0>
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e2a50> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12050ba10>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:09:51 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:09:51 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:09:51 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120532ed0>
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e33d0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:09:51 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12050b620>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:09:51 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:09:52 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:09:52 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755391832_8a2f4005260808d7b0a0ed0692f86456_8ljgocl6u8b0h5pf; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'2c94717c-3492-4c29-9da3-db6ba9648581'), (b'x-session-id', b'00284412-fc5f-4719-83e9-0b39775a25aa'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'6670403481:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:09:52 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:09:52 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:09:52 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:09:52 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:09:52 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:09:52 - bot - INFO - Ответ GigaChat получен (длина: 147 симв.)
+2026-11-15 18:09:52 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:09:52 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:09:52 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:09:52 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:09:52 - bot - INFO - История сохранена (6 сообщений)
+2026-11-15 18:10:01 - bot - INFO - Запрос: биология егэ
+2026-11-15 18:10:01 - rag.vector_store - DEBUG - Поиск 'биология егэ': найдено 2 чанков (порог=0.30)
+2026-11-15 18:10:01 - bot - DEBUG - Отправка в GigaChat, сообщений: 8
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1205308f0>
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e3f50> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x120530890>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:10:01 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:10:01 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:10:01 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12054caa0>
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1204e2ed0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:10:01 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12054c9b0>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:10:01 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:10:02 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:10:02 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755401756_5a1ddc4aeb4ce8f77f1a12c9b666faa6_ge1tp28mm6milns5; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'd1f78335-8fef-4702-ba9f-7a9a4b4880ac'), (b'x-session-id', b'26d38d97-58dc-4bb8-be1a-05a7dad97379'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'6637431441:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:10:02 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:10:02 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:10:02 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:10:02 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:10:02 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:10:02 - bot - INFO - Ответ GigaChat получен (длина: 279 симв.)
+2026-11-15 18:10:02 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:10:02 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:10:02 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:10:02 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:10:02 - bot - INFO - История сохранена (8 сообщений)
+2026-11-15 18:10:22 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:10:22 - bot - INFO - Запуск чат-бота
+2026-11-15 18:10:22 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:10:22 - rag.vector_store - INFO - Векторы загружены из vectors.json (8 шт.)
+2026-11-15 18:10:22 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:11:06 - bot - INFO - Расчёт плана: тем=2, дней=5, часов в день=2.0, тем в день=1
+2026-11-15 18:11:06 - bot - INFO - Сообщений в истории: 8
+2026-11-15 18:11:30 - bot - INFO - Запрос: как мне подготовиться качественно к экзамену егэ по русскому языку
+2026-11-15 18:11:30 - rag.embedder - INFO - Загрузка модели эмбеддингов: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:11:30 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-11-15 18:11:30 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:11:30 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 404 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-11-15 18:11:31 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 0
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 0
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 0
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/revision/main HTTP/1.1" 200 None
+2026-11-15 18:11:32 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2 HTTP/1.1" 200 None
+2026-11-15 18:11:32 - rag.embedder - INFO - Модель загружена, размерность: 312
+2026-11-15 18:11:34 - rag.vector_store - DEBUG - Поиск 'как мне подготовиться качественно к экзамену егэ п': найдено 2 чанков (порог=0.30)
+2026-11-15 18:11:34 - bot - DEBUG - Отправка в GigaChat, сообщений: 10
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12534af00>
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531e850> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1252f1550>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:11:34 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:11:34 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:11:34 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125374350>
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531f2d0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125374260>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:11:34 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755494277_a8ec9c2ea6bb65ddd9d68c43e64d812c_0qf5fdhcknrbn58g; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'dc673fa2-aa6e-45ad-b4ad-c6b48e2550fd'), (b'x-session-id', b'a1376b7b-2742-45cb-9a64-1c0822a8e423'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'6642493340:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:11:34 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:11:34 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:11:34 - bot - INFO - Ответ GigaChat получен (длина: 336 симв.)
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:11:34 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:11:34 - bot - INFO - История сохранена (10 сообщений)
+2026-11-15 18:13:01 - bot - INFO - Запрос: какие именно темы нужно повторить
+2026-11-15 18:13:01 - rag.vector_store - DEBUG - Поиск 'какие именно темы нужно повторить': найдено 2 чанков (порог=0.30)
+2026-11-15 18:13:01 - bot - DEBUG - Отправка в GigaChat, сообщений: 12
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125375c40>
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531fc50> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125375b50>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:13:01 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:13:01 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:13:01 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125377320>
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531f250> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:13:01 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125377230>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:13:01 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:02 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:13:02 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755581897_756b5d737d46c085ada72324e4b3c31e_s7lpltpqhvpbkod7; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'edcaeb0a-d637-4dd2-b2a9-15e2c84f01f8'), (b'x-session-id', b'4ef387e7-3e41-49f2-9fbc-b3e8e2d028cb'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'3473011992:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:13:02 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:13:02 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:13:02 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:13:02 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:13:02 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:13:02 - bot - INFO - Ответ GigaChat получен (длина: 369 симв.)
+2026-11-15 18:13:02 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:13:02 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:13:02 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:13:02 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:13:02 - bot - INFO - История сохранена (12 сообщений)
+2026-11-15 18:13:18 - bot - INFO - Запрос: какие темы есть в егэ по русскому
+2026-11-15 18:13:18 - rag.vector_store - DEBUG - Поиск 'какие темы есть в егэ по русскому': найдено 2 чанков (порог=0.30)
+2026-11-15 18:13:18 - bot - DEBUG - Отправка в GigaChat, сообщений: 12
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12534b7d0>
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531f8d0> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12534b710>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:13:18 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:13:18 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:13:18 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1253765a0>
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x12531f050> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x125376030>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:13:18 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755598499_28a38b927dfda7e0ba1527469399c974_6v8jdd734xsnvfg8; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'1efdc39f-98b4-425b-a60a-bad068801df7'), (b'x-session-id', b'6d365c50-b5db-4bfd-bd48-8722fc0ff17f'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'6559466166:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:13:18 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:13:18 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:13:18 - bot - INFO - Ответ GigaChat получен (длина: 214 симв.)
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:13:18 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:13:18 - bot - INFO - История сохранена (14 сообщений)
+2026-11-15 18:14:01 - bot - INFO - Инициализация ExamBot
+2026-11-15 18:14:01 - bot - INFO - Запуск чат-бота
+2026-11-15 18:14:01 - bot - INFO - Загрузка RAG-базы...
+2026-11-15 18:14:01 - rag.vector_store - INFO - Векторы загружены из vectors.json (8 шт.)
+2026-11-15 18:14:01 - bot - INFO - Загружено 8 векторов
+2026-11-15 18:14:53 - bot - INFO - Сообщений в истории: 14
+2026-11-15 18:15:59 - bot - INFO - Запрос: как мне подготовиться к огэ по истории?
+2026-11-15 18:15:59 - rag.embedder - INFO - Загрузка модели эмбеддингов: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:15:59 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-11-15 18:15:59 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sergeyzh/rubert-tiny-sts-v2
+2026-11-15 18:15:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 404 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/README.md HTTP/1.1" 200 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/modules.json HTTP/1.1" 200 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-11-15 18:16:00 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/sentence_bert_config.json HTTP/1.1" 200 0
+2026-11-15 18:16:01 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-11-15 18:16:01 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/config.json HTTP/1.1" 200 0
+2026-11-15 18:16:01 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sergeyzh/rubert-tiny-sts-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-11-15 18:16:01 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sergeyzh/rubert-tiny-sts-v2/ca4178c12dd679831bc7b31c63408f1f9ade189b/tokenizer_config.json HTTP/1.1" 200 0
+2026-11-15 18:16:02 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2/revision/main HTTP/1.1" 200 None
+2026-11-15 18:16:02 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sergeyzh/rubert-tiny-sts-v2 HTTP/1.1" 200 None
+2026-11-15 18:16:02 - rag.embedder - INFO - Модель загружена, размерность: 312
+2026-11-15 18:16:03 - rag.vector_store - DEBUG - Поиск 'как мне подготовиться к огэ по истории?': найдено 2 чанков (порог=0.30)
+2026-11-15 18:16:03 - bot - DEBUG - Отправка в GigaChat, сообщений: 12
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - connect_tcp.started host='ngw.devices.sberbank.ru' port=9443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x127428140>
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1276f6c50> server_hostname='ngw.devices.sberbank.ru' timeout=30.0
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x126f18380>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'SynGX'), (b'Date', b'Sun, 15 Nov 2026 15:16:03 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'1279'), (b'Connection', b'keep-alive'), (b'Vary', b'Origin'), (b'Vary', b'Access-Control-Request-Method'), (b'Vary', b'Access-Control-Request-Headers'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'0'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000 ; includeSubDomains'), (b'X-Frame-Options', b'DENY'), (b'X-XSS-Protection', b'0'), (b'Referrer-Policy', b'no-referrer'), (b'Allow', b'GET, POST'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-Content-Type-Options', b'nosniff'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains')])
+2026-11-15 18:16:03 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:16:03 - gigachat.client - DEBUG - Token refreshed via OAuth
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - connect_tcp.started host='api.giga.chat' port=443 local_address=None timeout=30.0 socket_options=None
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1277482f0>
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x1276f76d0> server_hostname='api.giga.chat' timeout=30.0
+2026-11-15 18:16:03 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x127748200>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-11-15 18:16:03 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-11-15 18:16:04 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx'), (b'Date', b'Sun, 15 Nov 2026 15:16:04 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Keep-Alive', b'timeout=15'), (b'Vary', b'Accept-Encoding'), (b'set-cookie', b'spid=1794755763922_1449c5524e9b5bf6e4773dfb7f74376a_sgmbqsi5m0mgiifg; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Path=/; Secure; SameSite=None'), (b'access-control-allow-credentials', b'true'), (b'access-control-allow-headers', b'Origin, X-Requested-With, Content-Type, Accept, Authorization'), (b'access-control-allow-methods', b'GET, POST, DELETE, OPTIONS'), (b'access-control-allow-origin', b'https://gigachat.sberdevices.ru'), (b'x-request-id', b'90ef08c5-7081-47e3-b83d-91370b260939'), (b'x-session-id', b'4fea4caf-406e-477e-9f9b-280e60572073'), (b'strict-transport-security', b'max-age=15768000; includeSubdomains; preload'), (b'x-content-type-options', b'nosniff'), (b'x-xss-protection', b'1; mode=block'), (b'x-frame-options', b'SAMEORIGIN'), (b'x-backend', b'itsme'), (b'X-SP-CRID', b'7898560179:1'), (b'Content-Encoding', b'gzip')])
+2026-11-15 18:16:04 - httpx - INFO - HTTP Request: POST https://api.giga.chat/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-15 18:16:04 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-11-15 18:16:04 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-11-15 18:16:04 - httpcore.http11 - DEBUG - response_closed.started
+2026-11-15 18:16:04 - httpcore.http11 - DEBUG - response_closed.complete
+2026-11-15 18:16:04 - bot - INFO - Ответ GigaChat получен (длина: 315 симв.)
+2026-11-15 18:16:04 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:16:04 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:16:04 - httpcore.connection - DEBUG - close.started
+2026-11-15 18:16:04 - httpcore.connection - DEBUG - close.complete
+2026-11-15 18:16:04 - bot - INFO - История сохранена (16 сообщений)
